@@ -39,7 +39,7 @@ class StockIndicator(Base):
     ticker = Column(String(64),ForeignKey('stock.ticker'),doc = '股票代码')
     trade_date = Column(DateTime,doc = '交易日')
     pe = Column(Float,doc = '市盈率')
-    pt_ttm = Column(Float,doc = '市盈率TTM')
+    pe_ttm = Column(Float,doc = 'PeTTM')
     pb = Column(Float,doc = '市净率')
     ps = Column(Float,doc = '市销率')
     ps_ttm = Column(Float,doc = '市销率TTM')

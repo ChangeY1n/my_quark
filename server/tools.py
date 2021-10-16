@@ -22,7 +22,10 @@ def init_price():
     """重置个股每日数据"""
     from quark.scripts.init_stockinfo import init_price
     init_price()
-
+def init_indicator():
+    """个股基本面数据"""
+    from quark.scripts.init_stockinfo import init_indicator
+    init_indicator()
 
 def tools_dispatcher(options, args):
     """工作调度器
@@ -33,7 +36,8 @@ def tools_dispatcher(options, args):
     _method_map = {
         'init_db' : init_db,
         'init_stock' : init_stock,
-        'init_price' : init_price
+        'init_price' : init_price,
+        'init_indicator' : init_indicator
     }
 
     for opt in opts:
@@ -65,6 +69,7 @@ def system_command():
     table_tools_options.add_option("--init_db", action="store_true", dest="init_db", help="重置应用数据库, 请谨慎操作！")
     table_tools_options.add_option("--init_stock", action="store_true", dest="init_stock", help="重置股票基本数据，包括公司名，股票代码等信息")
     table_tools_options.add_option("--init_price", action="store_true", dest="init_price", help="重置个股每日数据")
+    table_tools_options.add_option("--init_indicator", action="store_true", dest="init_indicator", help="重置个股基本面数据")
 
     opt_parser.add_option_group(table_tools_options)
 
